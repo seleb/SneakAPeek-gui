@@ -8,11 +8,10 @@ export default class Stream extends Component {
 		return (
 			<figure className="stream">
 				<Image
-					src={this.props.src}
-					fallback={defaultStreamIcon}
+					src={this.props.stream.img}
 				/>
 				<figcaption>
-					<span className="stream-name">{this.props.src}</span>
+					<span className="stream-name">{this.props.stream.name}</span>
 					<button className="remove-button" onClick={() => this.props.remove()}>X</button>
 				</figcaption>
 			</figure>

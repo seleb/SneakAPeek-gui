@@ -31,7 +31,7 @@ class App extends Component {
 						(stream, idx) => (
 							<Stream
 								key={idx}
-								src={stream}
+								stream={stream}
 
 								remove={() => this.removeStream(idx)}
 							/>

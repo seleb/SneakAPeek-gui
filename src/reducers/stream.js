@@ -28,6 +28,7 @@ export default (state = initState, action) => {
 			// TODO: hook up to backend; update existing streams
 			return {
 				...state,
+				streams: action.payload.streams
 			}
 		default:
 			return state;
