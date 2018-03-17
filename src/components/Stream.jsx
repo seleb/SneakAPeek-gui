@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import Image from "./Image.jsx";
-import defaultStreamIcon from "../assets/icon_stream.svg?url=true";
 
 export default class Stream extends Component {
 	render = () => {
