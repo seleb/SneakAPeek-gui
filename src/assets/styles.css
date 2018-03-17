@@ -1,0 +1,225 @@
+html,
+body,
+#app {
+	width: 100%;
+	height: 100%;
+}
+
+* {
+	/* debug */
+	/* outline: dashed 1px rgba(255, 0, 0, 0.404); */
+	color: #FFF;
+	box-sizing: border-box;
+}
+
+html * {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header,
+.footer {
+	text-align: center;
+}
+
+.footer footer {
+	font-size: 0.8em;
+	background: #000;
+	color: rgba(255, 233, 255, .25);
+	border-top: solid 1px rgb(31, 30, 46);
+	padding-top: .3em;
+	padding-bottom: .3em;
+}
+
+.header header {
+	background: rgb(0, 0, 0);
+	color: rgba(255, 233, 255, .25);
+	padding-top: .3em;
+	padding-bottom: .3em;
+	margin-bottom: .3em;
+	border-bottom: solid 1px rgb(31, 30, 46);
+	position: relative;
+	display: flex;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.header header::before {
+	content: "👀";
+	display: block;
+	flex: none;
+	align-self: center;
+}
+
+.header header h1 {
+	padding: 0;
+	margin: 0;
+	color: inherit;
+	flex: auto;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	align-content: stretch;
+	min-width: 100%;
+	min-height: 100%;
+	background-color: rgb(10, 35, 63);
+	background-image: linear-gradient(.525turn, rgba(195, 0, 255, 0), rgba(17, 6, 39, 0.75)), linear-gradient(.475turn, rgba(195, 0, 255, 0), rgba(17, 6, 39, 0.75));
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
+.app>* {
+	flex: none;
+}
+
+.app>.streams {
+	flex: auto;
+}
+
+.streams {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+	grid-gap: 0.25em;
+	grid-auto-rows: 10em;
+	align-items: stretch;
+	justify-items: stretch;
+}
+
+/* @media(max-width:700px) {
+	.streams {
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: minmax(calc(50vw * 9/16), auto);
+	}
+}
+
+@media(max-width:300px) {
+	.streams {
+		grid-template-columns: repeat(1, 1fr);
+		grid-auto-rows: minmax(calc(100vw * 9/16), auto);
+	}
+} */
+
+.stream {
+	border-radius: 2px;
+	/* width: 100%;
+	height: 100%; */
+	background-color: rgba(255, 255, 255, .1);
+	background: radial-gradient(closest-side, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0));
+	align-items: stretch;
+	justify-items: stretch;
+	transition: background-color .15s;
+	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	position: relative;
+	display: flex;
+}
+
+.stream figcaption {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.stream .stream-name {
+	/* margin-left: 2em; */
+	color: rgba(255, 233, 255, .25);
+	width: 100%;
+	text-overflow: ellipsis;
+	display: block;
+	word-break: break-all;
+}
+
+.stream:hover .stream-name {
+	color: rgba(255, 233, 255, .5);
+}
+
+.stream .image {
+	width:100%;
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.stream .image img {
+	max-width: 100%;
+	max-height: 100%;
+	display:block;
+}
+
+.stream .image.loading {
+	width: 100%;
+	height: 100%;
+	background-image: url("./icon_stream.svg");
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat no-repeat;
+}
+
+.stream .image.loading img {
+	visibility: hidden;
+}
+
+.stream:hover {
+	background-color: rgba(255, 255, 255, .3);
+	box-shadow: .1em .1em .1em black;
+}
+
+.stream .remove-button {
+	width: 2em;
+	height: 2em;
+	mask-image: url("./icon_cross.svg");
+	background-color: rgba(255, 133, 155, 0);
+	/* float: right; */
+}
+
+.stream:hover .remove-button {
+	background-color: rgba(255, 133, 155, .5);
+}
+
+.stream .remove-button:hover {
+	background-color: rgba(255, 033, 055, 1);
+	transform: rotate(180deg);
+}
+
+.new-stream {
+	/* background: none; */
+	text-align: center;
+}
+
+.new-stream button {
+	width: 100%;
+	height: 100%;
+	mask-image: url("./icon_plus.svg");
+	mask-size: auto 25%;
+	background-color: rgba(255, 233, 255, .5);
+}
+
+.new-stream button:hover,
+.new-stream:hover button {
+	mask-size: auto 33%;
+	transform: rotate(0deg);
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	color: transparent;
+	background: none;
+	mask-size: auto 75%;
+	mask-repeat: no-repeat;
+	mask-position: center center;
+	transition: background-color .30s cubic-bezier(0.07, 1.57, 0.46, 1.04), transform .30s cubic-bezier(0.07, 1.57, 0.46, 1.04), mask-size .15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transform: rotate(0deg);
+}
+
+button:hover {
+	mask-size: auto 99%;
+}
