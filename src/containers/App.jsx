@@ -27,7 +27,7 @@ class App extends Component {
 				<Header />
 				<button onClick={() => this.getStreams()} style={{ height: "4em", backgroundColor:"white" }}>Refresh</button>
 				<section className="streams">
-					{this.props.streamReducer.streams_url.map(
+					{this.props.streamReducer.streams.map(
 						(stream, idx) => (
 							<Stream
 								key={idx}

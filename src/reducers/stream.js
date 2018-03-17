@@ -5,7 +5,7 @@ import {
 } from "../types/stream";
 
 const initState = {
-	streams_url: []
+	streams: []
 };
 
 function remove(arr, idx) {
@@ -17,12 +17,12 @@ export default (state = initState, action) => {
 		case REMOVE_STREAM:
 			return {
 				...state,
-				streams_url: remove(state.streams_url, action.payload.idx)
+				streams: remove(state.streams, action.payload.idx)
 			};
 		case ADD_STREAM:
 			return {
 				...state,
-				streams_url: state.streams_url.concat(action.payload.url)
+				streams: state.streams.concat(action.payload.url)
 			};
 		case GET_STREAMS:
 			// TODO: hook up to backend; update existing streams
