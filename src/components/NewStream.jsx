@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 export default class Stream extends Component {
-	render = () => {
+	render() {
 		return (
 			<article className="stream new-stream">
 				<button onClick={() => this.props.addStream()}>
@@ -9,5 +9,5 @@ export default class Stream extends Component {
 				</button>
 			</article>
 		);
-	};
+	}
 }
