@@ -11,7 +11,7 @@ export default class Modal extends Component {
 	}
 	render() {
 		if (!this.props.show) {
-			return <div className="backdrop hidden"></div>;
+			return <div className="backdrop hidden" />;
 		}
 		return (
 			<div className="backdrop">

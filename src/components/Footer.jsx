@@ -6,6 +6,6 @@ export default class Footer extends Component {
 			<div className="footer">
 				<footer>This is a footer</footer>
 			</div>
-		)
-	}
+		);
+	};
 }

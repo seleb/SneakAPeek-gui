@@ -1,8 +1,4 @@
-import {
-	createStore,
-	combineReducers,
-	applyMiddleware
-} from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import streamReducer from "./reducers/stream";
 import imagesReducer from "./reducers/images";
 import modalsReducer from "./reducers/modals";
@@ -14,9 +10,6 @@ const reducer = combineReducers({
 	modalsReducer
 });
 
-const store = createStore(
-	reducer,
-	applyMiddleware(thunk)
-);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 export default store;

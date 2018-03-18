@@ -4,8 +4,10 @@ export default class Stream extends Component {
 	render = () => {
 		return (
 			<article className="stream new-stream">
-				<button onClick={() => this.props.addStream()}>Add new stream</button>
+				<button onClick={() => this.props.addStream()}>
+					Add new stream
+				</button>
 			</article>
-		)
-	}
+		);
+	};
 }

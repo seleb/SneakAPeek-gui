@@ -1,8 +1,4 @@
-import {
-	LOADED,
-	LOADING,
-	ERRORED
-} from "../types/images";
+import { LOADED, LOADING, ERRORED } from "../types/images";
 
 export function loading(url) {
 	return {

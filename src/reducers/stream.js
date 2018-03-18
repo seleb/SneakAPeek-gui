@@ -1,8 +1,4 @@
-import {
-	REMOVE_STREAM,
-	ADD_STREAM,
-	GET_STREAMS
-} from "../types/stream";
+import { REMOVE_STREAM, ADD_STREAM, GET_STREAMS } from "../types/stream";
 
 const initState = {
 	streams: []
@@ -29,7 +25,7 @@ export default (state = initState, action) => {
 			return {
 				...state,
 				streams: action.payload.streams
-			}
+			};
 		default:
 			return state;
 	}

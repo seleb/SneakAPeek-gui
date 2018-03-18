@@ -1,10 +1,6 @@
-import {
-	REMOVE_STREAM,
-	ADD_STREAM,
-	GET_STREAMS
-} from './../types/stream';
+import { REMOVE_STREAM, ADD_STREAM, GET_STREAMS } from "./../types/stream";
 
-export const removeStream = (idx) => {
+export const removeStream = idx => {
 	return dispatch => {
 		dispatch({
 			type: REMOVE_STREAM,
@@ -12,10 +8,10 @@ export const removeStream = (idx) => {
 				idx
 			}
 		});
-	}
+	};
 };
 
-export const addStream = (url) => {
+export const addStream = url => {
 	return dispatch => {
 		dispatch({
 			type: ADD_STREAM,
@@ -23,10 +19,10 @@ export const addStream = (url) => {
 				url
 			}
 		});
-	}
+	};
 };
 
-export const getStreams = (idx) => {
+export const getStreams = idx => {
 	return dispatch => {
 		// hardcode for now
 		var channels = ['loltyler1', 'solary', 'c9sneaky', 'sparcmaclived', 'hashinshin'];

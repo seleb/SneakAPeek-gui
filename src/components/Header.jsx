@@ -8,6 +8,6 @@ export default class Header extends Component {
 					<h1>SneakAPeek</h1>
 				</header>
 			</div>
-		)
-	}
+		);
+	};
 }
