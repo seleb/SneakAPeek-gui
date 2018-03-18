@@ -4,13 +4,14 @@
 	"description": "React/Redux frontend for SneakAPeek",
 	"main": "index.js",
 	"scripts": {
-		"start": "node server.js",
+		"start": "node --experimental-modules server.mjs",
 		"build:dev": "webpack.js --config ./webpack.config.dev.js",
 		"build:prod": "webpack.js --config ./webpack.config.prod.js"
 	},
 	"author": "Sean S. LeBlanc",
 	"license": "MIT",
 	"dependencies": {
+		"hls.js": "^0.8.9",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",
 		"react-redux": "^5.0.7",

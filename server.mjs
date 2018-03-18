@@ -1,7 +1,7 @@
-require("sneakapeek");
-const webpack = require("webpack");
-const WebpackDevServer = require("webpack-dev-server");
-const config = require("./webpack.config.dev.js");
+import "sneakapeek";
+import webpack from "webpack";
+import WebpackDevServer from "webpack-dev-server";
+import config from "./webpack.config.dev.js";
 const port = 8080;
 
 const options = {
