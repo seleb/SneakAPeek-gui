@@ -62,9 +62,7 @@ export const getStreams = channels => {
 				dispatch({
 					type: UPDATE_STREAMS,
 					payload: {
-						streams: Object.entries(json.streams)
-							.map(i => i[1])
-							.reduce(streamArrayToMap, {})
+						streams: json.streams
 					}
 				});
 			});
