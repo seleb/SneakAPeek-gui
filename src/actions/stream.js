@@ -36,27 +36,34 @@ export const getStreams = (idx) => {
 				streams: channels.map(stream => {
 					return {
 						...stream,
-						img: null
+						imgUrl: null
 					};
 				})
 			}
 		});
 
-		return fetch(`http://localhost:3000/api/streams?streams=${JSON.stringify(channels)}`).then(response => {
-			return response.json();
-		}).then(json => {
-			// update each image
-			const d = Date.now();
-			for(let stream in json.streams){
-				json.streams[stream].img = `${json.streams[stream].img}?${d}`;
-			};
-			dispatch({
-				type: GET_STREAMS,
-				payload: {
-					streams: Object.entries(json.streams).map((i) => i[1])
+		return fetch(
+			`http://localhost:3000/api/streams?streams=${JSON.stringify(
+				channels
+			)}`
+		)
+			.then(response => {
+				return response.json();
+			})
+			.then(json => {
+				// update each image
+				const d = Date.now();
+				for (let stream in json.streams) {
+					json.streams[stream].imgUrl = `${
+						json.streams[stream].imgUrl
+					}?${d}`;
 				}
+				dispatch({
+					type: GET_STREAMS,
+					payload: {
+						streams: Object.entries(json.streams).map(i => i[1])
+					}
+				});
 			});
-		});
-
-	}
+	};
 };

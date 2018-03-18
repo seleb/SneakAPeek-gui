@@ -13,15 +13,15 @@ class App extends Component {
 	removeStream = (idx) => {
 		this.props.dispatch(removeStream(idx));
 	}
-	addStream = () => {
+	addStream() {
 		// TODO: make this launch a modal or something to enter stream info
 		this.props.dispatch(addStream("test.png"));
 	}
-	getStreams = () => {
+	getStreams() {
 		this.props.dispatch(getStreams());
 	}
 
-	render = () => {
+	render() {
 		return (
 			<div className="app">
 				<Header />

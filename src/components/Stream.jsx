@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Image from "./Image.jsx";
 
 export default class Stream extends Component {
-	render = () => {
+	render() {
 		return (
 			<figure className="stream">
 				<Image
@@ -14,6 +14,6 @@ export default class Stream extends Component {
 					<button className="remove-button" onClick={() => this.props.remove()}>X</button>
 				</figcaption>
 			</figure>
-		)
+		);
 	}
 }

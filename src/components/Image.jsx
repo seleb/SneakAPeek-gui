@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { loaded, loading, errored } from './../actions/images';
+import { loaded, loading, errored } from "./../actions/images";
 
 class Image extends Component {
 	componentDidMount() {
@@ -13,19 +13,21 @@ class Image extends Component {
 	onError() {
 		this.props.dispatch(errored(this.props.src));
 	}
-	render = () => {
-		let className="image";
-		if(!this.props.imagesReducer[this.props.src]){
-			className+=" loading";
+	render() {
+		let className = "preview";
+		if (!this.props.imagesReducer[this.props.src]) {
+			className += " loading";
 		}
 		return (
-			<div className={className}><img
-				src={this.props.src}
-				alt={this.props.src}
-				onLoad={() => this.onLoad()}
-				onError={() => this.onError()}
-			/></div>
-		)
+			<div className={className}>
+				<img
+					src={this.props.src}
+					alt={this.props.src}
+					onLoad={() => this.onLoad()}
+					onError={() => this.onError()}
+				/>
+			</div>
+		);
 	}
 }
 
