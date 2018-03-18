@@ -246,20 +246,28 @@ button:hover {
 	border-radius: 1em;
 	background: white;
 	box-shadow: 0 0 3em black;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
-/* .backdrop button {
-	color:black;
-	border:solid 1px black;
-} */
-.backdrop .modal .remove-button {
+.backdrop .modal .button {
 	width: 2em;
 	height: 2em;
-	mask-image: url("./icon_cross.svg");
-	background-color: rgba(255, 133, 155, 0.5);
 }
 
-.backdrop .modal:hover .remove-button {
-	background-color: rgba(255, 133, 155, .5);
+.backdrop .modal input {
+	color: black;
+	display: block;
+	flex: auto;
+	max-width: 100%;
+}
+.backdrop .modal .buttons {
+	flex: none;
+}
+.backdrop .modal .remove-button {
+	mask-image: url("./icon_cross.svg");
+	background-color: rgba(255, 133, 155, 0.5);
 }
 
 .backdrop .modal .remove-button:hover {
@@ -267,23 +275,12 @@ button:hover {
 	transform: rotate(180deg);
 }
 
-
-
 .backdrop .modal .submit-button {
-	width: 2em;
-	height: 2em;
 	mask-image: url("./icon_check.svg");
 	background-color: rgba(99, 160, 58, 0.5);
 }
 
-.backdrop .modal:hover .submit-button {
-	background-color: rgba(99, 160, 58, 0.5);
-}
-
 .backdrop .modal .submit-button:hover {
-	background-color: rgba(122, 255, 33, 1.0);
+	background-color: rgba(122, 255, 33, 1);
 	transform: rotate(360deg);
-}
-input{
-	color:black;
 }

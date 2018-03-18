@@ -17,18 +17,20 @@ export default class Modal extends Component {
 			<div className="backdrop">
 				<div className="modal">
 					{this.props.children}
-					<button
-						className="submit-button"
-						onClick={() => this.onSubmit()}
-					>
-						✓
-					</button>
-					<button
-						className="remove-button"
-						onClick={() => this.onAbort()}
-					>
-						X
-					</button>
+					<div className="buttons">
+						<button
+							className="button submit-button"
+							onClick={() => this.onSubmit()}
+						>
+							✓
+						</button>
+						<button
+							className="button remove-button"
+							onClick={() => this.onAbort()}
+						>
+							X
+						</button>
+					</div>
 				</div>
 			</div>
 		);
