@@ -89,9 +89,9 @@ html * {
 
 .streams {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
 	grid-gap: 0.25em;
-	grid-auto-rows: 10em;
+	grid-auto-rows: 16em;
 	align-items: stretch;
 	justify-items: stretch;
 }
@@ -106,18 +106,19 @@ html * {
 	);
 	align-items: stretch;
 	justify-items: stretch;
-	transition: background-color 0.15s;
+	transition: margin 0.2s, background-color 0.15s;
 	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	position: relative;
 	display: flex;
 	overflow: hidden;
+	margin: 0.2em;
 }
 
 .stream figcaption {
 	position: absolute;
-	top: .1em;
-	left: .1em;
-	right: .1em;
+	top: 0.1em;
+	left: 0.1em;
+	right: 0.1em;
 	display: flex;
 	flex-direction: row;
 }
@@ -129,9 +130,14 @@ html * {
 	display: block;
 	word-break: break-all;
 }
-
+.stream:hover {
+	margin: 0em;
+	background-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0.2em black;
+}
 .stream:hover .stream-name {
 	color: rgba(255, 233, 255, 0.5);
+	text-shadow: black 1px 1px 2px;
 }
 
 .stream .preview {
@@ -183,13 +189,16 @@ html * {
 	visibility: hidden;
 }
 
-.stream:hover {
-	background-color: rgba(255, 255, 255, 0.3);
-	box-shadow: 0.1em 0.1em 0.1em black;
-}
 .stream .button {
 	width: 2em;
 	height: 2em;
+	transform: rotate(-90deg);
+}
+.stream:hover .button {
+	transform: rotate(0deg);
+}
+.stream .button:hover {
+	transform: rotate(180deg);
 }
 
 .stream .remove-button {
@@ -203,7 +212,6 @@ html * {
 
 .stream .remove-button:hover {
 	background-color: rgba(255, 033, 055, 1);
-	transform: rotate(180deg);
 }
 
 .stream .refresh-button {
@@ -217,7 +225,6 @@ html * {
 
 .stream .refresh-button:hover {
 	background-color: rgb(33, 122, 255);
-	transform: rotate(180deg);
 }
 
 .new-stream {
@@ -230,6 +237,7 @@ html * {
 	mask-image: url("./icon_plus.svg");
 	mask-size: auto 25%;
 	background-color: rgba(255, 233, 255, 0.5);
+	transform: rotate(0deg);
 }
 
 .new-stream .button:hover,
