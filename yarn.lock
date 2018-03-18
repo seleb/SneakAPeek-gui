@@ -2390,7 +2390,7 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
-express@^4.16.2:
+express@^4.16.2, express@^4.16.3:
   version "4.16.3"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"
   dependencies:
@@ -3083,6 +3083,12 @@ history@^4.7.2:
     resolve-pathname "^2.2.0"
     value-equal "^0.4.0"
     warning "^3.0.0"
+
+hls.js@^0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/hls.js/-/hls.js-0.8.9.tgz#db367cc99ce5b0976ea3e059a1d044d7b0790697"
+  dependencies:
+    url-toolkit "^2.0.1"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -4891,8 +4897,8 @@ postcss-load-plugins@^2.3.0:
     object-assign "^4.1.0"
 
 postcss-loader@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-2.1.1.tgz#208935af3b1d65e1abb1a870a912dd12e7b36895"
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-2.1.2.tgz#03f54e23be736c9ea4f610e17d2a299254c05130"
   dependencies:
     loader-utils "^1.1.0"
     postcss "^6.0.0"
@@ -5940,10 +5946,11 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-"sneakAPeek@https://github.com/arenex/SneakAPeek.git", "sneakapeek@https://github.com/arenex/SneakAPeek.git":
+"sneakapeek@https://github.com/arenex/SneakAPeek.git":
   version "1.0.0"
-  resolved "https://github.com/arenex/SneakAPeek.git#0a4ac900b76a2029a78d389f573a4d054db387eb"
+  resolved "https://github.com/arenex/SneakAPeek.git#cbb76ef54ecdaec364ea95b93917b29bf5f9cbc5"
   dependencies:
+    express "^4.16.3"
     twitch-get-stream "^0.4.1"
     twitch-url "^1.0.0"
     websocket "1.0.23"
@@ -6606,6 +6613,10 @@ url-parse@^1.1.8:
 url-to-options@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/url-to-options/-/url-to-options-1.0.1.tgz#1505a03a289a48cbd7a434efbaeec5055f5633a9"
+
+url-toolkit@^2.0.1:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/url-toolkit/-/url-toolkit-2.1.4.tgz#e0dac60e5fdd50b8ac984307699e8b72439b3fd3"
 
 url@^0.11.0:
   version "0.11.0"
