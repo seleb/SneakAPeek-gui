@@ -8,12 +8,13 @@ body,
 * {
 	/* debug */
 	/* outline: dashed 1px rgba(255, 0, 0, 0.404); */
-	color: #FFF;
+	color: #fff;
 	box-sizing: border-box;
 }
 
 html * {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+		sans-serif;
 }
 
 .header,
@@ -24,18 +25,18 @@ html * {
 .footer footer {
 	font-size: 0.8em;
 	background: #000;
-	color: rgba(255, 233, 255, .25);
+	color: rgba(255, 233, 255, 0.25);
 	border-top: solid 1px rgb(31, 30, 46);
-	padding-top: .3em;
-	padding-bottom: .3em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
 }
 
 .header header {
 	background: rgb(0, 0, 0);
-	color: rgba(255, 233, 255, .25);
-	padding-top: .3em;
-	padding-bottom: .3em;
-	margin-bottom: .3em;
+	color: rgba(255, 233, 255, 0.25);
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	margin-bottom: 0.3em;
 	border-bottom: solid 1px rgb(31, 30, 46);
 	position: relative;
 	display: flex;
@@ -67,17 +68,22 @@ html * {
 	min-width: 100%;
 	min-height: 100%;
 	background-color: rgb(10, 35, 63);
-	background-image: linear-gradient(.525turn, rgba(195, 0, 255, 0), rgba(17, 6, 39, 0.75)), linear-gradient(.475turn, rgba(195, 0, 255, 0), rgba(17, 6, 39, 0.75));
+	background-image: linear-gradient(
+			0.525turn,
+			rgba(195, 0, 255, 0),
+			rgba(17, 6, 39, 0.75)
+		),
+		linear-gradient(0.475turn, rgba(195, 0, 255, 0), rgba(17, 6, 39, 0.75));
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
 }
 
-.app>* {
+.app > * {
 	flex: none;
 }
 
-.app>.streams {
+.app > .streams {
 	flex: auto;
 }
 
@@ -108,11 +114,15 @@ html * {
 	border-radius: 2px;
 	/* width: 100%;
 	height: 100%; */
-	background-color: rgba(255, 255, 255, .1);
-	background: radial-gradient(closest-side, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0));
+	background-color: rgba(255, 255, 255, 0.1);
+	background: radial-gradient(
+		closest-side,
+		rgba(255, 255, 255, 0.03),
+		rgba(0, 0, 0, 0)
+	);
 	align-items: stretch;
 	justify-items: stretch;
-	transition: background-color .15s;
+	transition: background-color 0.15s;
 	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	position: relative;
 	display: flex;
@@ -129,7 +139,7 @@ html * {
 
 .stream .stream-name {
 	/* margin-left: 2em; */
-	color: rgba(255, 233, 255, .25);
+	color: rgba(255, 233, 255, 0.25);
 	width: 100%;
 	text-overflow: ellipsis;
 	display: block;
@@ -137,12 +147,12 @@ html * {
 }
 
 .stream:hover .stream-name {
-	color: rgba(255, 233, 255, .5);
+	color: rgba(255, 233, 255, 0.5);
 }
 
 .stream .preview {
-	width:100%;
-	height:100%;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -151,7 +161,7 @@ html * {
 .stream .preview img {
 	max-width: 100%;
 	max-height: 100%;
-	display:block;
+	display: block;
 }
 
 .stream .preview.loading {
@@ -168,8 +178,8 @@ html * {
 }
 
 .stream:hover {
-	background-color: rgba(255, 255, 255, .3);
-	box-shadow: .1em .1em .1em black;
+	background-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0.1em 0.1em 0.1em black;
 }
 
 .stream .remove-button {
@@ -180,7 +190,7 @@ html * {
 }
 
 .stream:hover .remove-button {
-	background-color: rgba(255, 133, 155, .5);
+	background-color: rgba(255, 133, 155, 0.5);
 }
 
 .stream .remove-button:hover {
@@ -198,7 +208,7 @@ html * {
 	height: 100%;
 	mask-image: url("./icon_plus.svg");
 	mask-size: auto 25%;
-	background-color: rgba(255, 233, 255, .5);
+	background-color: rgba(255, 233, 255, 0.5);
 }
 
 .new-stream button:hover,
@@ -215,7 +225,9 @@ button {
 	mask-size: auto 75%;
 	mask-repeat: no-repeat;
 	mask-position: center center;
-	transition: background-color .30s cubic-bezier(0.07, 1.57, 0.46, 1.04), transform .30s cubic-bezier(0.07, 1.57, 0.46, 1.04), mask-size .15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: background-color 0.3s cubic-bezier(0.07, 1.57, 0.46, 1.04),
+		transform 0.3s cubic-bezier(0.07, 1.57, 0.46, 1.04),
+		mask-size 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	transform: rotate(0deg);
 }
 
@@ -223,19 +235,19 @@ button:hover {
 	mask-size: auto 99%;
 }
 
-.backdrop{
-	position:fixed;
-	width:100%;
-	height:100%;
-	background-color: rgba(0,0,0,.2);
-	display:flex;
+.backdrop {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: background-color .30s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
 }
 
 .backdrop.hidden {
-	background-color: rgba(0, 0, 0, .0);
+	background-color: rgba(0, 0, 0, 0);
 	pointer-events: none;
 }
 
