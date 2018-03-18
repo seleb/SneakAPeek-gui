@@ -1,4 +1,4 @@
-import { REMOVE_STREAM, ADD_STREAM, GET_STREAMS } from "../types/stream";
+import { REMOVE_STREAM, ADD_STREAM, UPDATE_STREAMS } from "../types/stream";
 
 const initState = {
 	streams: []
@@ -18,13 +18,20 @@ export default (state = initState, action) => {
 		case ADD_STREAM:
 			return {
 				...state,
-				streams: state.streams.concat(action.payload.url)
+				streams: state.streams.concat({
+					name: action.payload.channelName
+				})
 			};
-		case GET_STREAMS:
-			// TODO: hook up to backend; update existing streams
+		case UPDATE_STREAMS:
+			let streams = state.streams.map(stream => {
+				if (action.payload.streams[stream.name]) {
+					return Object.assign({}, action.payload.streams[stream.name]);
+				}
+				return stream;
+			});
 			return {
 				...state,
-				streams: action.payload.streams
+				streams: streams
 			};
 		default:
 			return state;

@@ -1,4 +1,9 @@
-import { REMOVE_STREAM, ADD_STREAM, GET_STREAMS } from "./../types/stream";
+import { REMOVE_STREAM, ADD_STREAM, UPDATE_STREAMS } from "./../types/stream";
+
+const streamArrayToMap = (result, stream) => {
+	result[stream.name] = stream;
+	return result;
+};
 
 export const removeStream = idx => {
 	return dispatch => {
@@ -11,30 +16,30 @@ export const removeStream = idx => {
 	};
 };
 
-export const addStream = url => {
+export const addStream = channelName => {
 	return dispatch => {
 		dispatch({
 			type: ADD_STREAM,
 			payload: {
-				url
+				channelName
 			}
 		});
 	};
 };
 
-export const getStreams = idx => {
+export const getStreams = channels => {
 	return dispatch => {
-		// hardcode for now
-		var channels = ['loltyler1', 'solary', 'c9sneaky', 'sparcmaclived', 'hashinshin'];
 		dispatch({
-			type: GET_STREAMS,
+			type: UPDATE_STREAMS,
 			payload: {
-				streams: channels.map(stream => {
-					return {
-						...stream,
-						imgUrl: null
-					};
-				})
+				streams: channels
+					.map(channelName => {
+						return {
+							name: channelName,
+							imgUrl: null
+						};
+					})
+					.reduce(streamArrayToMap, {})
 			}
 		});
 
@@ -55,9 +60,11 @@ export const getStreams = idx => {
 					}?${d}`;
 				}
 				dispatch({
-					type: GET_STREAMS,
+					type: UPDATE_STREAMS,
 					payload: {
-						streams: Object.entries(json.streams).map(i => i[1])
+						streams: Object.entries(json.streams)
+							.map(i => i[1])
+							.reduce(streamArrayToMap, {})
 					}
 				});
 			});

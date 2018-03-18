@@ -35,11 +35,15 @@ class App extends Component {
 		this.props.dispatch(modalOpen("newStream"));
 	}
 	addStream() {
-		// TODO: make this launch a modal or something to enter stream info
-		this.props.dispatch(addStream("test.png"));
+		this.props.dispatch(addStream(this.state.newStream));
+		this.props.dispatch(getStreams([this.state.newStream]));
 	}
 	getStreams() {
-		this.props.dispatch(getStreams());
+		this.props.dispatch(
+			getStreams(
+				this.props.streamReducer.streams.map(stream => stream.name)
+			)
+		);
 	}
 
 	render() {
@@ -48,7 +52,11 @@ class App extends Component {
 				<Header />
 				<button
 					onClick={() => this.getStreams()}
-					style={{ height: "4em", backgroundColor: "white", color:"black" }}
+					style={{
+						height: "4em",
+						backgroundColor: "white",
+						color: "black"
+					}}
 				>
 					Refresh
 				</button>
