@@ -12,7 +12,13 @@ export default class Stream extends Component {
 						{this.props.stream.name}
 					</span>
 					<button
-						className="remove-button"
+						className="button refresh-button"
+						onClick={() => this.props.refresh()}
+					>
+						↻
+					</button>
+					<button
+						className="button remove-button"
 						onClick={() => this.props.remove()}
 					>
 						X
