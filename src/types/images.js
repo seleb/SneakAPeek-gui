@@ -1,3 +1,3 @@
-export const LOADED = Symbol("LOADED");
-export const ERRORED = Symbol("ERRORED");
-export const LOADING = Symbol("LOADING");
+export const LOADED = "LOADED";
+export const ERRORED = "ERRORED";
+export const LOADING = "LOADING";

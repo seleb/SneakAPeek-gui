@@ -1,2 +1,2 @@
-export const OPEN = Symbol("OPEN");
-export const CLOSE = Symbol("CLOSE");
+export const OPEN = "OPEN";
+export const CLOSE = "CLOSE";
