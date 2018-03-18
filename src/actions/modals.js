@@ -1,14 +1,14 @@
 import { OPEN, CLOSE } from "../types/modals";
 
-export function open(modal) {
+export function open(key) {
 	return {
 		type: OPEN,
-		payload: { modal }
+		payload: { key }
 	};
 }
-export function close(idx) {
+export function close(key) {
 	return {
 		type: CLOSE,
-		payload: { idx }
+		payload: { key }
 	};
 }

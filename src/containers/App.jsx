@@ -16,18 +16,23 @@ import NewStream from "../components/NewStream.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Modal from "../components/Modal.jsx";
+import TextInput from "../components/TextInput.jsx";
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			newStream: ""
+		};
+	}
+	onChange(val) {
+		this.setState({ newStream: val });
+	}
 	removeStream(idx) {
 		this.props.dispatch(removeStream(idx));
 	}
 	openAddStreamModal() {
-		this.props.dispatch(
-			modalOpen({
-				visible: true,
-				content: <input type="text" />
-			})
-		);
+		this.props.dispatch(modalOpen("newStream"));
 	}
 	addStream() {
 		// TODO: make this launch a modal or something to enter stream info
@@ -58,19 +63,27 @@ class App extends Component {
 					<NewStream addStream={() => this.openAddStreamModal()} />
 				</section>
 				<Footer />
-				{this.props.modalsReducer.modals.map((modal, idx) => (
-					<Modal
-						key={idx}
-						show={modal.visible}
-						onSubmit={() => this.addStream()}
-						onAbort={() => console.log("abort")}
-						onClose={() => {
-							this.props.dispatch(modalClose(idx));
+				<Modal
+					key={"newStream"}
+					show={this.props.modalsReducer.modals["newStream"]}
+					onSubmit={() => this.addStream()}
+					onAbort={() => console.log("abort")}
+					onClose={() => {
+						this.setState({ newStream: "" });
+						this.props.dispatch(modalClose("newStream"));
+					}}
+				>
+					<TextInput
+						ref={input => {
+							if (input) {
+								input.onFocus();
+							}
 						}}
-					>
-						{modal.content}
-					</Modal>
-				))}
+						placeholder="Channel name..."
+						value={this.state.newStream}
+						onChange={v => this.onChange(v)}
+					/>
+				</Modal>
 			</div>
 		);
 	}
