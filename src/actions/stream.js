@@ -58,6 +58,16 @@ export const getStreams = channels => {
 					json.streams[stream].imgUrl = `${
 						json.streams[stream].imgUrl
 					}?${d}`;
+				if (!json.streams) {
+					json.streams = channels.reduce((result, stream) => {
+						result[stream] = {
+							name: stream,
+							imgUrl: null,
+							streamUrl: null,
+							success: false
+						};
+						return result;
+					}, {});
 				}
 				dispatch({
 					type: UPDATE_STREAMS,
