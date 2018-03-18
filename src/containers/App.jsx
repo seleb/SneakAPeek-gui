@@ -43,7 +43,7 @@ class App extends Component {
 				<Header />
 				<button
 					onClick={() => this.getStreams()}
-					style={{ height: "4em", backgroundColor: "white" }}
+					style={{ height: "4em", backgroundColor: "white", color:"black" }}
 				>
 					Refresh
 				</button>
