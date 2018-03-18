@@ -1,5 +1,11 @@
 // runs the backend + frontend, building the frontend with webpack-dev-server for live development
-import "sneakapeek";
+
+// start the backend
+import SneakAPeek from "sneakapeek";
+import sneakAPeekConfig from "./sneakapeek.config.json";
+SneakAPeek(sneakAPeekConfig);
+
+// start the frontend
 import minimist from "minimist";
 import webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
@@ -29,7 +35,6 @@ const options = {
 };
 
 const server = new WebpackDevServer(webpack(config), options);
-
 server.listen(port, "localhost", function(err) {
 	if (err) {
 		console.log(err);

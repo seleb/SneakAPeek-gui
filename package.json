@@ -14,9 +14,9 @@
 	"license": "MIT",
 	"dependencies": {
 		"hls.js": "^0.8.9",
+		"http-server": "^0.11.1",
 		"minimist": "^1.2.0",
 		"open": "^0.0.5",
-		"http-server": "^0.11.1",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",
 		"react-redux": "^5.0.7",
