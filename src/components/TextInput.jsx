@@ -12,6 +12,7 @@ export default class TextInput extends Component {
 				placeholder={this.props.placeholder}
 				value={this.props.value}
 				onChange={event => this.props.onChange(event.target.value)}
+				onKeyPress={this.props.onKeyPress}
 			/>
 		);
 	}

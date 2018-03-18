@@ -90,6 +90,14 @@ class App extends Component {
 						placeholder="Channel name..."
 						value={this.state.newStream}
 						onChange={v => this.onChange(v)}
+						onKeyPress={event => {
+							if (event.key === "Enter") {
+								event.stopPropagation();
+								this.addStream();
+								this.setState({ newStream: "" });
+								this.props.dispatch(modalClose("newStream"));
+							}
+						}}
 					/>
 				</Modal>
 			</div>
