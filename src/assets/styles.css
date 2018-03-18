@@ -222,3 +222,65 @@ button {
 button:hover {
 	mask-size: auto 99%;
 }
+
+.backdrop{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color: rgba(0,0,0,.2);
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color .30s ease-in-out;
+}
+
+.backdrop.hidden {
+	background-color: rgba(0, 0, 0, .0);
+	pointer-events: none;
+}
+
+.backdrop .modal {
+	position: absolute;
+	max-width: 80%;
+	padding: 2em;
+	border-radius: 1em;
+	background: white;
+	box-shadow: 0 0 3em black;
+}
+/* .backdrop button {
+	color:black;
+	border:solid 1px black;
+} */
+.backdrop .modal .remove-button {
+	width: 2em;
+	height: 2em;
+	mask-image: url("./icon_cross.svg");
+	background-color: rgba(255, 133, 155, 0.5);
+}
+
+.backdrop .modal:hover .remove-button {
+	background-color: rgba(255, 133, 155, .5);
+}
+
+.backdrop .modal .remove-button:hover {
+	background-color: rgba(255, 033, 055, 1);
+	transform: rotate(180deg);
+}
+
+
+
+.backdrop .modal .submit-button {
+	width: 2em;
+	height: 2em;
+	mask-image: url("./icon_check.svg");
+	background-color: rgba(99, 160, 58, 0.5);
+}
+
+.backdrop .modal:hover .submit-button {
+	background-color: rgba(99, 160, 58, 0.5);
+}
+
+.backdrop .modal .submit-button:hover {
+	background-color: rgba(122, 255, 33, 1.0);
+	transform: rotate(360deg);
+}

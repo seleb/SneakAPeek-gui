@@ -5,11 +5,13 @@ import {
 } from "redux";
 import streamReducer from "./reducers/stream";
 import imagesReducer from "./reducers/images";
+import modalsReducer from "./reducers/modals";
 import thunk from "redux-thunk";
 
 const reducer = combineReducers({
 	streamReducer,
-	imagesReducer
+	imagesReducer,
+	modalsReducer
 });
 
 const store = createStore(
