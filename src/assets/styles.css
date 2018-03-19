@@ -202,7 +202,7 @@ html * {
 	background-repeat: no-repeat no-repeat;
 }
 .stream .preview.errored.invalid {
-	opacity:0.5;
+	opacity: 0.5;
 }
 .stream .preview.errored img {
 	visibility: hidden;
@@ -359,7 +359,7 @@ button:hover {
 	border-radius: 50%;
 	mask-image: url("./icon_refresh.svg");
 	mask-size: auto 80%;
-	background-color: rgb(33, 122, 255, .5);
+	background-color: rgb(33, 122, 255, 0.5);
 	transform: rotate(0deg);
 }
 .footer .button.refresh-button:hover {
@@ -371,13 +371,12 @@ button:hover {
 	transform: rotate(200deg);
 }
 
-
-.modal .preview{
+.modal .preview {
 	max-width: 100%;
 }
 
-.modal .preview img{
-	max-height:initial;
+.modal .preview img {
+	max-height: initial;
 }
 
 .bigStream .modal {
