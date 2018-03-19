@@ -10,11 +10,13 @@ export default class Modal extends Component {
 		this.props.onClose();
 	}
 	render() {
+		let className = `backdrop ${this.props.className}`;
 		if (!this.props.show) {
-			return <div className="backdrop hidden" />;
+			className += " hidden";
+			return <div className={className} />;
 		}
 		return (
-			<div className="backdrop">
+			<div className={className}>
 				<div className="modal">
 					{this.props.children}
 					<div className="buttons">

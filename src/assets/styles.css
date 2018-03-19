@@ -379,3 +379,7 @@ button:hover {
 .modal .preview img{
 	max-height:initial;
 }
+
+.bigStream .modal {
+	flex-wrap: nowrap;
+}

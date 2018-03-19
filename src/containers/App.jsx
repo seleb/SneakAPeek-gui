@@ -83,6 +83,7 @@ class App extends Component {
 					</button>
 				</Footer>
 				<Modal
+					className="newStream"
 					key={"newStream"}
 					show={this.props.modalsReducer.modals["newStream"]}
 					onSubmit={() => this.addStream()}
@@ -112,6 +113,7 @@ class App extends Component {
 					/>
 				</Modal>
 				<Modal
+					className="bigStream"
 					key={"bigStream"}
 					show={this.props.modalsReducer.modals["bigStream"]}
 					onAbort={() => {
