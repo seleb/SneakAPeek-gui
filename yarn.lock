@@ -6001,7 +6001,7 @@ snapdragon@^0.8.1:
 
 "sneakapeek@https://github.com/arenex/SneakAPeek.git":
   version "1.0.0"
-  resolved "https://github.com/arenex/SneakAPeek.git#6d49a99225fd33e8bdbd12a2ae64e4fa274aebb0"
+  resolved "https://github.com/arenex/SneakAPeek.git#176da724496191d2562bd407b80f392b4fca5cd0"
   dependencies:
     express "^4.16.3"
     opn "^5.3.0"

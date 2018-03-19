@@ -54,11 +54,6 @@ export const getStreams = channels => {
 			})
 			.then(json => {
 				// update each image
-				const d = Date.now();
-				for (let s in json.streams) {
-					const stream = json.streams[s];
-					stream.imgUrl = `${stream.imgUrl}?${d}`;
-				}
 				if (!json.streams) {
 					json.streams = channels.reduce((result, stream) => {
 						result[stream] = {
