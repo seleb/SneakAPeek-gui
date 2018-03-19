@@ -131,12 +131,12 @@ html * {
 	display: block;
 	word-break: break-all;
 }
-.stream:hover {
+.streams .stream:hover {
 	margin: 0em;
 	background-color: rgba(255, 255, 255, 0.3);
 	box-shadow: 0.2em black;
 }
-.stream:hover .stream-name {
+.streams .stream:hover .stream-name {
 	color: rgba(255, 233, 255, 0.5);
 	text-shadow: black 1px 1px 2px;
 }
@@ -375,4 +375,8 @@ button:hover {
 
 .modal .preview{
 	max-width: 100%;
+}
+
+.modal .preview img{
+	max-height:initial;
 }

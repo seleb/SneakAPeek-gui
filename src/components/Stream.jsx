@@ -9,7 +9,9 @@ export default class Stream extends Component {
 					src={this.props.stream.imgUrl}
 					fallback={this.props.stream.oldImgUrl}
 					invalid={this.props.stream.invalid}
-					onClick={() => this.props.popout()}
+					onClick={
+						this.props.popout ? () => this.props.popout() : () => {}
+					}
 				/>
 				<figcaption>
 					<span className="stream-name">
@@ -21,12 +23,14 @@ export default class Stream extends Component {
 					>
 						↻
 					</button>
-					<button
-						className="button remove-button"
-						onClick={() => this.props.remove()}
-					>
-						X
-					</button>
+					{this.props.remove ? (
+						<button
+							className="button remove-button"
+							onClick={() => this.props.remove()}
+						>
+							X
+						</button>
+					) : null}
 				</figcaption>
 			</figure>
 		);

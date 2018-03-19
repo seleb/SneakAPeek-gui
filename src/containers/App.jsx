@@ -24,7 +24,8 @@ class App extends Component {
 		super(props);
 		this.state = {
 			newStream: "",
-			bigStream: null
+			bigStream: null,
+			bigStreamPlaying: false
 		};
 	}
 	onChange(val) {
@@ -114,6 +115,7 @@ class App extends Component {
 					key={"bigStream"}
 					show={this.props.modalsReducer.modals["bigStream"]}
 					onAbort={() => {
+						this.setState({ bigStreamPlaying: false });
 						this.setState({ bigStream: null });
 					}}
 					onClose={() => {
@@ -121,13 +123,31 @@ class App extends Component {
 					}}
 				>
 					{this.state.bigStream !== null ? (
-						<HlsVideo
-							src={
-								this.props.streamReducer.streams[
-									this.state.bigStream
-								].streamUrl
-							}
-						/>
+						this.state.bigStreamPlaying ? (
+							<HlsVideo
+								src={
+									this.props.streamReducer.streams[
+										this.state.bigStream
+									].streamUrl
+								}
+							/>
+						) : (
+							<Stream
+								style={{ background: "black" }}
+								key={this.state.bigStream}
+								stream={
+									this.props.streamReducer.streams[
+										this.state.bigStream
+									]
+								}
+								refresh={() =>
+									this.updateStream(this.state.bigStream)
+								}
+								popout={() => {
+									this.setState({ bigStreamPlaying: true });
+								}}
+							/>
+						)
 					) : null}
 				</Modal>
 			</div>
