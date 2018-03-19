@@ -94,11 +94,6 @@ class App extends Component {
 					}}
 				>
 					<TextInput
-						ref={input => {
-							if (input) {
-								input.onFocus();
-							}
-						}}
 						placeholder="Channel name..."
 						value={this.state.newStream}
 						onChange={v => this.onChange(v)}
