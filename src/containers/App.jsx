@@ -111,12 +111,11 @@ class App extends Component {
 					className="bigStream"
 					key={"bigStream"}
 					show={this.props.modalsReducer.modals["bigStream"]}
-					onAbort={() => {
-						this.setState({ bigStreamPlaying: false });
-						this.setState({ bigStream: null });
-					}}
+					onAbort={() => {}}
 					onClose={() => {
 						this.props.dispatch(modalClose("bigStream"));
+						this.setState({ bigStreamPlaying: false });
+						this.setState({ bigStream: null });
 					}}
 				>
 					{this.state.bigStream !== null ? (

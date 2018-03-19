@@ -16,7 +16,23 @@ export default class Modal extends Component {
 			return <div className={className} />;
 		}
 		return (
-			<div className={className}>
+			<div
+				className={className}
+				tabIndex="0"
+				onKeyUp={event => {
+					if (event.key === "Escape") {
+						event.stopPropagation();
+						this.onAbort();
+					}
+				}}
+			>
+				<input
+					autoFocus
+					style={{
+						width: 0,
+						overflow: "hidden"
+					}}
+				/>
 				<div className="modal">
 					{this.props.children}
 					<div className="buttons">
