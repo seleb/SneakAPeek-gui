@@ -37,6 +37,9 @@ class Image extends Component {
 		} else if (this.isErrored()) {
 			className += " errored";
 		}
+		if (this.props.invalid){
+			className += " invalid";
+		}
 		return (
 			<div className={className}>
 				<img

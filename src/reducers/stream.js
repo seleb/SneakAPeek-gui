@@ -1,4 +1,9 @@
-import { REMOVE_STREAM, ADD_STREAM, UPDATE_STREAMS } from "../types/stream";
+import {
+	REMOVE_STREAM,
+	ADD_STREAM,
+	UPDATE_STREAMS,
+	INVALIDATE_STREAMS
+} from "../types/stream";
 
 const initState = {
 	streams: []
@@ -22,10 +27,13 @@ export default (state = initState, action) => {
 					name: action.payload.channelName
 				})
 			};
-		case UPDATE_STREAMS:
+		case UPDATE_STREAMS: {
 			let streams = state.streams.map(stream => {
 				if (action.payload.streams[stream.name]) {
-					return Object.assign({}, action.payload.streams[stream.name]);
+					return Object.assign(
+						{},
+						action.payload.streams[stream.name]
+					);
 				}
 				return stream;
 			});
@@ -33,6 +41,19 @@ export default (state = initState, action) => {
 				...state,
 				streams: streams
 			};
+		}
+		case INVALIDATE_STREAMS: {
+			let streams = state.streams.map(stream => {
+				return {
+					...stream,
+					invalid: action.payload.streams[stream.name]
+				};
+			});
+			return {
+				...state,
+				streams: streams
+			};
+		}
 		default:
 			return state;
 	}

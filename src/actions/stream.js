@@ -1,4 +1,9 @@
-import { REMOVE_STREAM, ADD_STREAM, UPDATE_STREAMS } from "./../types/stream";
+import {
+	REMOVE_STREAM,
+	ADD_STREAM,
+	UPDATE_STREAMS,
+	INVALIDATE_STREAMS
+} from "./../types/stream";
 
 const streamArrayToMap = (result, stream) => {
 	result[stream.name] = stream;
@@ -30,23 +35,19 @@ export const addStream = channelName => {
 export const getStreams = channels => {
 	return dispatch => {
 		dispatch({
-			type: UPDATE_STREAMS,
+			type: INVALIDATE_STREAMS,
 			payload: {
-				streams: channels
-					.map(channelName => {
-						return {
-							name: channelName,
-							imgUrl: null
-						};
-					})
-					.reduce(streamArrayToMap, {})
+				streams: channels.reduce((result, stream) => {
+					result[stream] = true;
+					return result;
+				}, {})
 			}
 		});
 
 		return fetch(
 			`http://localhost:3000/api/streams?streams=${JSON.stringify(
 				channels
-			)}`
+			)}` // TODO: don't hard-code backend url
 		)
 			.then(response => {
 				return response.json();
