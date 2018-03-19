@@ -128,7 +128,7 @@ class App extends Component {
 								].streamUrl
 							}
 						/>
-					) : null}}
+					) : null}
 				</Modal>
 			</div>
 		);
