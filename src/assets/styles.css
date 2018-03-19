@@ -200,6 +200,9 @@ html * {
 .stream .button:hover {
 	transform: rotate(180deg);
 }
+.stream .button:active {
+	transform: rotate(200deg);
+}
 
 .stream .remove-button {
 	mask-image: url("./icon_cross.svg");
@@ -315,6 +318,9 @@ button:hover {
 	background-color: rgba(255, 033, 055, 1);
 	transform: rotate(180deg);
 }
+.backdrop .modal .remove-button:active {
+	transform: rotate(200deg);
+}
 
 .backdrop .modal .submit-button {
 	mask-image: url("./icon_check.svg");
@@ -324,4 +330,25 @@ button:hover {
 .backdrop .modal .submit-button:hover {
 	background-color: rgba(122, 255, 33, 1);
 	transform: rotate(360deg);
+}
+.backdrop .modal .submit-button:active {
+	transform: rotate(380deg);
+}
+
+.footer .button.refresh-button {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	mask-image: url("./icon_refresh.svg");
+	mask-size: auto 80%;
+	background-color: rgb(33, 122, 255, .5);
+	transform: rotate(0deg);
+}
+.footer .button.refresh-button:hover {
+	mask-size: auto 90%;
+	background-color: rgb(33, 122, 255);
+	transform: rotate(180deg);
+}
+.footer .button.refresh-button:active {
+	transform: rotate(200deg);
 }

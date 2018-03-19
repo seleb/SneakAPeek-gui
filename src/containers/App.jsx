@@ -38,7 +38,7 @@ class App extends Component {
 		this.props.dispatch(addStream(this.state.newStream));
 		this.props.dispatch(getStreams([this.state.newStream]));
 	}
-	updateStream(idx){
+	updateStream(idx) {
 		this.props.dispatch(
 			getStreams([this.props.streamReducer.streams[idx].name])
 		);
@@ -55,16 +55,6 @@ class App extends Component {
 		return (
 			<div className="app">
 				<Header />
-				<button
-					onClick={() => this.updateStreams()}
-					style={{
-						height: "4em",
-						backgroundColor: "white",
-						color: "black"
-					}}
-				>
-					Refresh
-				</button>
 				<section className="streams">
 					{this.props.streamReducer.streams.map((stream, idx) => (
 						<Stream
@@ -76,7 +66,14 @@ class App extends Component {
 					))}
 					<NewStream addStream={() => this.openAddStreamModal()} />
 				</section>
-				<Footer />
+				<Footer>
+					<button
+						className="button refresh-button"
+						onClick={() => this.updateStreams()}
+					>
+						↻
+					</button>
+				</Footer>
 				<Modal
 					key={"newStream"}
 					show={this.props.modalsReducer.modals["newStream"]}

@@ -4,7 +4,7 @@ export default class Footer extends Component {
 	render = () => {
 		return (
 			<div className="footer">
-				<footer>This is a footer</footer>
+				<footer>{this.props.children}</footer>
 			</div>
 		);
 	};
