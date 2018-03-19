@@ -18,18 +18,22 @@ export default class Modal extends Component {
 				<div className="modal">
 					{this.props.children}
 					<div className="buttons">
-						<button
-							className="button submit-button"
-							onClick={() => this.onSubmit()}
-						>
-							✓
-						</button>
-						<button
-							className="button remove-button"
-							onClick={() => this.onAbort()}
-						>
-							X
-						</button>
+						{this.props.onSubmit ? (
+							<button
+								className="button submit-button"
+								onClick={() => this.onSubmit()}
+							>
+								✓
+							</button>
+						) : null}
+						{this.props.onAbort ? (
+							<button
+								className="button remove-button"
+								onClick={() => this.onAbort()}
+							>
+								X
+							</button>
+						) : null}
 					</div>
 				</div>
 			</div>

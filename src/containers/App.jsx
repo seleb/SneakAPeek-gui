@@ -113,9 +113,7 @@ class App extends Component {
 				<Modal
 					key={"bigStream"}
 					show={this.props.modalsReducer.modals["bigStream"]}
-					onSubmit={() => console.log("submit")}
 					onAbort={() => {
-						console.log("abort");
 						this.setState({ bigStream: null });
 					}}
 					onClose={() => {
