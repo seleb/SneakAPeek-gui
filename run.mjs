@@ -2,7 +2,7 @@
 
 // start the backend
 import SneakAPeek from "sneakapeek";
-import sneakAPeekConfig from "./sneakapeak.config.json";
+import sneakAPeekConfig from "./sneakapeek.config.json";
 SneakAPeek(sneakAPeekConfig);
 
 // start the frontend
