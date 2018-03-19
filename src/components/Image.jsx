@@ -6,11 +6,11 @@ import { loaded, loading, errored } from "./../actions/images";
 class Image extends Component {
 	isLoading() {
 		const img = this.props.imagesReducer[this.props.src];
-		return !img || !img.loaded;
+		return img && !img.loaded;
 	}
 	isErrored() {
 		const img = this.props.imagesReducer[this.props.src];
-		return img && img.errored;
+		return !img || img.errored;
 	}
 	componentDidMount() {
 		this.props.dispatch(loading(this.props.src));
@@ -46,14 +46,16 @@ class Image extends Component {
 						onClick={() => this.props.onClick()}
 					/>
 				) : null}
-				<img
-					style={{ display: this.isLoading() ? "none" : "block" }}
-					src={this.props.src}
-					alt={this.props.src}
-					onLoad={() => this.onLoad()}
-					onError={() => this.onError()}
-					onClick={() => this.props.onClick()}
-				/>
+				{this.props.src ? (
+					<img
+						style={{ display: this.isLoading() ? "none" : "block" }}
+						src={this.props.src}
+						alt={this.props.src}
+						onLoad={() => this.onLoad()}
+						onError={() => this.onError()}
+						onClick={() => this.props.onClick()}
+					/>
+				) : null}
 			</div>
 		);
 	}

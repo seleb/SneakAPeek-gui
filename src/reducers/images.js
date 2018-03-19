@@ -5,14 +5,32 @@ const initState = {};
 export default (state = initState, action) => {
 	switch (action.type) {
 		case LOADED:
+			if (!action.url) {
+				return {
+					...state,
+					[action.url]: {
+						loaded: true,
+						errored: true
+					}
+				};
+			}
 			return {
 				...state,
 				[action.url]: {
 					loaded: true,
-					errored:false
+					errored: false
 				}
 			};
 		case LOADING:
+			if (!action.url) {
+				return {
+					...state,
+					[action.url]: {
+						loaded: true,
+						errored: true
+					}
+				};
+			}
 			return {
 				...state,
 				[action.url]: {
@@ -21,6 +39,15 @@ export default (state = initState, action) => {
 				}
 			};
 		case ERRORED:
+			if (!action.url) {
+				return {
+					...state,
+					[action.url]: {
+						loaded: true,
+						errored: true
+					}
+				};
+			}
 			return {
 				...state,
 				[action.url]: {

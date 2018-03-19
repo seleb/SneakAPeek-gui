@@ -201,6 +201,9 @@ html * {
 	background-size: contain;
 	background-repeat: no-repeat no-repeat;
 }
+.stream .preview.errored.invalid {
+	opacity:0.5;
+}
 .stream .preview.errored img {
 	visibility: hidden;
 }
