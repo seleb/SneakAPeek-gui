@@ -28,14 +28,17 @@ export default (state = initState, action) => {
 				})
 			};
 		case UPDATE_STREAMS: {
-			let streams = state.streams.map(stream => {
-				if (action.payload.streams[stream.name]) {
+			let streams = state.streams.map(oldStream => {
+				const newStream = action.payload.streams[oldStream.name];
+				if (newStream) {
 					return Object.assign(
-						{},
-						action.payload.streams[stream.name]
+						{
+							oldImgUrl: oldStream.imgUrl
+						},
+						newStream
 					);
 				}
-				return stream;
+				return oldStream;
 			});
 			return {
 				...state,

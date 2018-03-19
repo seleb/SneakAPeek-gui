@@ -7,6 +7,7 @@ export default class Stream extends Component {
 			<figure className="stream">
 				<Image
 					src={this.props.stream.imgUrl}
+					fallback={this.props.stream.oldImgUrl}
 					invalid={this.props.stream.invalid}
 					onClick={() => this.props.popout()}
 				/>

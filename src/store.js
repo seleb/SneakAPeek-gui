@@ -19,7 +19,13 @@ const store = createStore(reducer, persistedState, applyMiddleware(thunk));
 store.subscribe(() => {
 	const state = store.getState();
 	saveState({
-		streamReducer: state.streamReducer
+		streamReducer: {
+			streams: state.streamReducer.streams.map(stream => ({
+				...stream,
+				oldImgUrl: null,
+				imgUrl: null
+			}))
+		}
 	});
 });
 
