@@ -4,7 +4,8 @@ import imagesReducer from "./reducers/images";
 import modalsReducer from "./reducers/modals";
 import thunk from "redux-thunk";
 
-import {loadState, saveState} from "./localStorage"; 
+import { loadState, saveState } from "./localStorage";
+import { getStreams } from "./actions/stream.js";
 
 const reducer = combineReducers({
 	streamReducer,
@@ -21,5 +22,18 @@ store.subscribe(() => {
 		streamReducer: state.streamReducer
 	});
 });
+
+// auto-refresh on boot
+if (
+	persistedState &&
+	persistedState.streamReducer &&
+	persistedState.streamReducer.streams
+) {
+	store.dispatch(
+		getStreams(
+			persistedState.streamReducer.streams.map(stream => stream.name)
+		)
+	);
+}
 
 export default store;
