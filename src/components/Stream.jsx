@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 
 import Image from "./Image.jsx";
-
 export default class Stream extends Component {
 	render() {
 		return (
 			<figure className="stream">
-				<Image src={this.props.stream.imgUrl} />
+				<Image
+					src={this.props.stream.imgUrl}
+					invalid={this.props.stream.invalid}
+					onClick={() => this.props.popout()}
+				/>
 				<figcaption>
 					<span className="stream-name">
 						{this.props.stream.name}

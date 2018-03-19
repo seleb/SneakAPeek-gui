@@ -17,12 +17,14 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Modal from "../components/Modal.jsx";
 import TextInput from "../components/TextInput.jsx";
+import HlsVideo from "../components/HlsVideo.jsx";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newStream: ""
+			newStream: "",
+			bigStream: null
 		};
 	}
 	onChange(val) {
@@ -33,6 +35,10 @@ class App extends Component {
 	}
 	openAddStreamModal() {
 		this.props.dispatch(modalOpen("newStream"));
+	}
+	popoutStream(idx) {
+		this.setState({ bigStream: idx });
+		this.props.dispatch(modalOpen("bigStream"));
 	}
 	addStream() {
 		this.props.dispatch(addStream(this.state.newStream));
@@ -62,6 +68,7 @@ class App extends Component {
 							stream={stream}
 							remove={() => this.removeStream(idx)}
 							refresh={() => this.updateStream(idx)}
+							popout={() => this.popoutStream(idx)}
 						/>
 					))}
 					<NewStream addStream={() => this.openAddStreamModal()} />
@@ -102,6 +109,28 @@ class App extends Component {
 							}
 						}}
 					/>
+				</Modal>
+				<Modal
+					key={"bigStream"}
+					show={this.props.modalsReducer.modals["bigStream"]}
+					onSubmit={() => console.log("submit")}
+					onAbort={() => {
+						console.log("abort");
+						this.setState({ bigStream: null });
+					}}
+					onClose={() => {
+						this.props.dispatch(modalClose("bigStream"));
+					}}
+				>
+					{this.state.bigStream !== null ? (
+						<HlsVideo
+							src={
+								this.props.streamReducer.streams[
+									this.state.bigStream
+								].streamUrl
+							}
+						/>
+					) : null}}
 				</Modal>
 			</div>
 		);

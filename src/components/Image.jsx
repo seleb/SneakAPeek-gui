@@ -47,6 +47,7 @@ class Image extends Component {
 					alt={this.props.src}
 					onLoad={() => this.onLoad()}
 					onError={() => this.onError()}
+					onClick={() => this.props.onClick()}
 				/>
 			</div>
 		);
